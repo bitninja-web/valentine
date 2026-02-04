@@ -7,12 +7,13 @@
 
 body {
   margin: 0;
-  height: 100vh;
+  min-height: 100vh;
   background: linear-gradient(135deg, #ffb199, #ff0844);
   display: flex;
   justify-content: center;
   align-items: center;
   overflow: hidden;
+  padding: 15px; /* 🔹 mobile safe padding */
 }
 
 /* Floating Hearts */
@@ -35,15 +36,13 @@ body {
   }
 }
 
-/* Card Background */
+/* Card */
 .card {
-  /* Updated to a "Glassmorphism" effect: semi-transparent white */
   background: linear-gradient(135deg, #fff1eb, #7883f8);
-  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
-  /* backdrop-filter: blur(10px); Blurs the background behind the card */
   padding: 30px;
   border-radius: 20px;
   width: 320px;
+  max-width: 100%;
   text-align: center;
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
   border: 1px solid rgba(255, 255, 255, 0.3);
@@ -63,13 +62,16 @@ body {
 
 .card h1 {
   color: #aa3449;
+  font-size: 1.5rem;
 }
 
+/* Teddies */
 .teddies {
   display: flex;
   justify-content: center;
   gap: 10px;
   margin: 15px 0;
+  flex-wrap: wrap; /* 🔹 mobile wrap */
 }
 
 .teddies img {
@@ -90,7 +92,7 @@ body {
 
 button {
   border: none;
-  padding: 10px 20px;
+  padding: 10px 22px;
   margin: 8px;
   border-radius: 25px;
   font-size: 1rem;
@@ -119,10 +121,7 @@ button {
 /* Popup */
 .popup {
   position: fixed;
-  top: 0;
-  left: 0;
-  height: 100%;
-  width: 100%;
+  inset: 0;
   background: rgba(208, 18, 72, 0.5);
   display: flex;
   justify-content: center;
@@ -130,6 +129,7 @@ button {
   visibility: hidden;
   opacity: 0;
   transition: 0.4s;
+  padding: 15px; /* 🔹 mobile spacing */
 }
 
 .popup.show {
@@ -143,10 +143,12 @@ button {
   border-radius: 20px;
   text-align: center;
   animation: pop 0.5s ease;
+  max-width: 90%;
 }
 
 .popup-content img {
   width: 150px;
+  max-width: 100%;
   border-radius: 12px;
   margin: 10px 0;
 }
@@ -154,4 +156,42 @@ button {
 #close {
   background: #f3627c;
   color: white;
+}
+
+/* 🔥 MOBILE OPTIMIZATION */
+@media (max-width: 480px) {
+  .card {
+    padding: 20px;
+  }
+
+  .card h1 {
+    font-size: 1.25rem;
+  }
+
+  .teddies img {
+    width: 80px;
+    height: 100px;
+  }
+
+  button {
+    font-size: 0.9rem;
+    padding: 9px 18px;
+  }
+
+  .popup-content {
+    padding: 20px;
+  }
+}
+
+/* 📱 VERY SMALL DEVICES */
+@media (max-width: 360px) {
+  .teddies img {
+    width: 70px;
+    height: 90px;
+  }
+
+  button {
+    width: 100%;
+    margin: 6px 0;
+  }
 }
