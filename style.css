@@ -194,4 +194,17 @@ button {
     width: 100%;
     margin: 6px 0;
   }
+
+/* Add up */
+  button {
+  touch-action: manipulation;
+}
+
+.popup {
+  pointer-events: none;
+}
+
+.popup.show {
+  pointer-events: auto;
+}
 }
