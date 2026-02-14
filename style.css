@@ -13,10 +13,9 @@ body {
   justify-content: center;
   align-items: center;
   overflow: hidden;
-  padding: 15px; /* 🔹 mobile safe padding */
+  padding: 15px;
 }
 
-/* Floating Hearts */
 .hearts::before {
   content: "💖 💕 💘 💝 💗 💓";
   position: absolute;
@@ -28,15 +27,10 @@ body {
 }
 
 @keyframes float {
-  from {
-    transform: translateY(100%);
-  }
-  to {
-    transform: translateY(-100%);
-  }
+  from { transform: translateY(100%); }
+  to { transform: translateY(-100%); }
 }
 
-/* Card */
 .card {
   background: linear-gradient(135deg, #fff1eb, #7883f8);
   padding: 30px;
@@ -50,28 +44,18 @@ body {
 }
 
 @keyframes pop {
-  0% {
-    transform: scale(0.5);
-    opacity: 0;
-  }
-  100% {
-    transform: scale(1);
-    opacity: 1;
-  }
+  0% { transform: scale(0.5); opacity: 0; }
+  100% { transform: scale(1); opacity: 1; }
 }
 
-.card h1 {
-  color: #aa3449;
-  font-size: 1.5rem;
-}
+.card h1 { color: #aa3449; font-size: 1.5rem; }
 
-/* Teddies */
 .teddies {
   display: flex;
   justify-content: center;
   gap: 10px;
   margin: 15px 0;
-  flex-wrap: wrap; /* 🔹 mobile wrap */
+  flex-wrap: wrap;
 }
 
 .teddies img {
@@ -81,14 +65,9 @@ body {
   transition: transform 0.3s ease;
 }
 
-.teddies img:hover {
-  transform: scale(1.1) rotate(5deg);
-}
+.teddies img:hover { transform: scale(1.1) rotate(5deg); }
 
-/* Buttons */
-.buttons {
-  margin-top: 15px;
-}
+.buttons { margin-top: 15px; }
 
 button {
   border: none;
@@ -98,27 +77,14 @@ button {
   font-size: 1rem;
   cursor: pointer;
   transition: 0.3s ease;
+  white-space: nowrap; /* Prevents text wrapping on small buttons */
 }
 
-#yes {
-  background: #ff4d6d;
-  color: white;
-}
+#yes { background: #ff4d6d; color: white; }
+#yes:hover { background: #ff1f4b; transform: scale(1.1); }
+#no { background: #c85b5b; }
+#no:hover { background: #d52525; }
 
-#yes:hover {
-  background: #ff1f4b;
-  transform: scale(1.1);
-}
-
-#no {
-  background: #c85b5b;
-}
-
-#no:hover {
-  background: #d52525;
-}
-
-/* Popup */
 .popup {
   position: fixed;
   inset: 0;
@@ -129,13 +95,10 @@ button {
   visibility: hidden;
   opacity: 0;
   transition: 0.4s;
-  padding: 15px; /* 🔹 mobile spacing */
+  padding: 15px;
 }
 
-.popup.show {
-  visibility: visible;
-  opacity: 1;
-}
+.popup.show { visibility: visible; opacity: 1; pointer-events: auto; }
 
 .popup-content {
   background: rgb(233, 82, 173);
@@ -153,58 +116,17 @@ button {
   margin: 10px 0;
 }
 
-#close {
-  background: #f3627c;
-  color: white;
-}
+#close { background: #f3627c; color: white; }
 
-/* 🔥 MOBILE OPTIMIZATION */
 @media (max-width: 480px) {
-  .card {
-    padding: 20px;
-  }
-
-  .card h1 {
-    font-size: 1.25rem;
-  }
-
-  .teddies img {
-    width: 80px;
-    height: 100px;
-  }
-
-  button {
-    font-size: 0.9rem;
-    padding: 9px 18px;
-  }
-
-  .popup-content {
-    padding: 20px;
-  }
+  .card { padding: 20px; }
+  .card h1 { font-size: 1.25rem; }
+  .teddies img { width: 80px; height: 100px; }
+  button { font-size: 0.9rem; padding: 9px 18px; }
 }
 
-/* 📱 VERY SMALL DEVICES */
 @media (max-width: 360px) {
-  .teddies img {
-    width: 70px;
-    height: 90px;
-  }
-
-  button {
-    width: 100%;
-    margin: 6px 0;
-  }
-
-/* Add up */
-  button {
-  touch-action: manipulation;
-}
-
-.popup {
-  pointer-events: none;
-}
-
-.popup.show {
-  pointer-events: auto;
-}
+  .teddies img { width: 70px; height: 90px; }
+  button { width: 100%; margin: 6px 0; touch-action: manipulation; }
+  .popup { pointer-events: none; }
 }
